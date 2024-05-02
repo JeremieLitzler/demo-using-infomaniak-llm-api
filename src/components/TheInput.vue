@@ -40,9 +40,7 @@
 import { ref } from 'vue';
 import type LlmResult from '../types/LlmResult';
 
-const llmApi = `https://api.infomaniak.com/2/llm/${
-  import.meta.env.VITE_LLM_PRODUCT_ID
-}/chat/completions`;
+const llmApi = `/api/request-llm`;
 const prompt = ref('Who is president of France?');
 const error = ref<string | null>(null);
 const emit = defineEmits<{ (event: '@capture', entry: LlmResult): void }>();
