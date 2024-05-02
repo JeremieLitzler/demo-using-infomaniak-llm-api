@@ -17,8 +17,15 @@ const fillResult = (data: LlmResult) => (result.value = data);
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <TheInput @@capture="fillResult" />
-  <TheOutput :result />
+  <suspense>
+    <template #default>
+      <TheInput @@capture="fillResult" />
+      <TheOutput :result />
+    </template>
+    <template #fallback>
+      <section class="loading">Loading...</section>
+    </template>
+  </suspense>
 </template>
 
 <style scoped>
