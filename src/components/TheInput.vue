@@ -52,15 +52,15 @@ const generate = async () => {
     messages: [{ content: prompt.value, role: 'user' }],
   });
 
-  const response = await fetch(llmApi, {
+  const options: RequestInit = {
     method: 'POST', // Set request method to POST
-    mode: 'no-cors',
     headers: {
       Authorization: `Bearer ${import.meta.env.VITE_LLM_API_KEY}`, // Replace with your authorization token
       'Content-Type': 'application/json', // Set content type to JSON
     },
     body: jsonData, // Send the JSON data in the body
-  });
+  };
+  const response = await fetch(llmApi, options);
 
   if (!response.ok) {
     error.value = `API request failed with status ${response.status}`;
