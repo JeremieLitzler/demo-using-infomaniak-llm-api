@@ -54,6 +54,7 @@ const generate = async () => {
 
   const response = await fetch(llmApi, {
     method: 'POST', // Set request method to POST
+    mode: 'no-cors',
     headers: {
       Authorization: `Bearer ${import.meta.env.VITE_LLM_API_KEY}`, // Replace with your authorization token
       'Content-Type': 'application/json', // Set content type to JSON
