@@ -40,7 +40,7 @@
 import { ref } from 'vue';
 import type LlmResult from '../types/LlmResult';
 
-const llmApi = `/api/request-llm`;
+const llmApi = `/api-llm`;
 const prompt = ref('Who is president of France?');
 const error = ref<string | null>(null);
 const emit = defineEmits<{ (event: '@capture', entry: LlmResult): void }>();
