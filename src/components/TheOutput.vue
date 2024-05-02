@@ -9,7 +9,7 @@
 import type LlmResult from '../types/LlmResult';
 
 interface TheOutputProps {
-  result?: LlmResult;
+  result?: LlmResult | null;
 }
 
 defineProps<TheOutputProps>();
