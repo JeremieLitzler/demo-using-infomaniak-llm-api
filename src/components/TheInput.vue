@@ -40,7 +40,6 @@
 import { ref } from 'vue';
 import type LlmResult from '../types/LlmResult';
 
-const llmApi = `/api-llm`;
 const prompt = ref('Who is president of France?');
 const error = ref<string | null>(null);
 const emit = defineEmits<{ (event: '@capture', entry: LlmResult): void }>();
@@ -58,6 +57,7 @@ const generate = async () => {
     },
     body: jsonData, // Send the JSON data in the body
   };
+  const llmApi = `/api-llm`;
   const response = await fetch(llmApi, options);
 
   if (!response.ok) {
